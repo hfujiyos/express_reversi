@@ -87,7 +87,8 @@
         "start": "nodemon",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    
+    ```
+
     ```console
     # nodemon実行
     npm start              # nodemon実行
