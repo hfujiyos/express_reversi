@@ -41,7 +41,7 @@
 
 - `.env`
   ```
-  REACT_APP_FIREBASE_APIKEY="AIzaSyCh2i8EiXwxjVfqo16qwgYpGRv9ycz6MP8"
+  REACT_APP_FIREBASE_APIKEY=""
   REACT_APP_FIREBASE_DOMAIN="reactjs-hooks-7670b.firebaseapp.com"
   REACT_APP_FIREBASE_DATABASE="https://reactjs-hooks-7670b.firebaseio.com"
   REACT_APP_FIREBASE_PROJECTID="reactjs-hooks-7670b"
