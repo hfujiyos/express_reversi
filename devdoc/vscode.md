@@ -2,11 +2,12 @@
 
 ## ショートカット
 
-- command + j : ターミナル表示/非表示
 - command + / : コメントアウト/イン
-- command + n : 新規ファイル
-- command + j : 新規ターミナル
+- command + N : ファイル新規
+- command + J : ターミナル新規
+- command + K : ターミナルクリア
 - shift + option + クリック : 複数カーソル
+- shift + option + P : SwaggerUI表示
 
 ## 拡張機能
 
