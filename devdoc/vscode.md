@@ -6,6 +6,7 @@
 - command + N : ファイル新規
 - command + J : ターミナル新規
 - command + K : ターミナルクリア
+- shift + command + V : マークダウンプレビュー
 - shift + option + クリック : 複数カーソル
 - shift + option + P : SwaggerUI表示
 
