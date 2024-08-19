@@ -15,7 +15,8 @@
 3. ER図｜er.drowio
 
 ## Mac-VSCodeショートカット
-* SwaggerUI表示 ｜shipt + option + P
+* SwaggerUI表示 ｜shift + option + P
+* ターミナル表示　｜command + J
 * ターミナル表示　｜control + shift + ^
 * ターミナルクリア｜command + K
 

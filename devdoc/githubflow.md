@@ -2,34 +2,57 @@
 
 ## 1. 初期ブランチ構築（スクラムマスター）
 
-- ローカルリポジトリで初期環境構築
+- Git初回設定
+
+  ``sh
+  git config --global init.defaultBranch main           # デフォルトブランチ名を main に変更
+  git config --global user.name "会社用のユーザーネーム"    # デフォルトユーザー名を指定
+  git config --global user.email "会社用のメールアドレス"   # デフォルトメールアドレスを指定
+  ```
+
+-- 開発ディレクトリを作成
+
+  ```sh
+  mkdir /Development/springboot/springboot_todoapi
+  cd /Development/springboot/springboot_todoapi
+  ```
+
+- ローカルリポジトリを設定
+
+  ```sh
+  git init
+  git branch -m master main
+  ```
+
 - リモートリポジトリに main ブランチ作成
-- ローカルリポジトリのブランチ名を main に変更
+  * GitHubにログインします
+  * 右上の「New repository」ボタンをクリックします
+  * リポジトリを作成します
+    * Repository name: プロジェクト名（例: springboot_todoapi）
+    * Description: オプションでプロジェクトの説明を入力します
+    * Visibility: 「Public」または「Private」を選択します
+    * 「Create repository」ボタンをクリックしてリポジトリを作成します
+  * 必要に応じて追加設定
+    * プルリクエストがマージされた後、ヘッドブランチを自動的に削除
+    ☑︎Automatically delete head branches
+
+- リモートリポジトリを設定
+
+    ```sh
+    git remote add origin git@github.com:hfujiyos/springboot_todoapi.git      # SSH接続の場合
+    ```
+
+- 初回リモートプッシュ
 
   ```sh
-  $ git branch -m master main
-  ```
-
-- ローカルリポジトリで initial commit してリモートへプッシュ
-
-  ```sh
-  $ git add .
-  $ git commit -m "initial commit"
-  $ git remote add origin git@github.com:hfujiyos/gatsbyjs-site.git
-  $ git push -u origin main
-  ```
-
-- リモートリポジトリにプロジェクト作成
-- リモートリポジトリのプロジェクト設定
-
-  ```
-  プルリクエストがマージされた後、ヘッドブランチを自動的に削除
-  ☑︎Automatically delete head branches
+  git add .                           # ステージング
+  git commit -m "initial commit"      # コミット
+  git push -u origin main             # プッシュ
   ```
 
 ## 2. イシュー定義（レビュア）
 
-- リモートリポジトリにイシューを作成して開発者をアサイン
+- イシュー作成と開発者アサイン
 
   ```
   Add login mock
@@ -38,73 +61,78 @@
 
 ## 3. チケット駆動開発（開発者）
 
-- ローカルリポジトリで main ブランチの最新のソースをプル
+- 開発ディレクトリを作成
 
   ```sh
-  mainブランチに切替
-  $ git checkout main
-
-  mainブランチの最新ソースをリモートリポジトリからプル
-  $ git pull
+  mkdir Development/Springboot_todoapi
+  cd Development/Springboot_todoapi
   ```
 
-- ローカルリポジトリに feature ブランチを切る
+- リモートリポジトリをクローン
 
   ```sh
-  featureブランチを新規作成してブランチ切替
-  $ git checkout -b feature/fixLoginLogic
+  git clone git@github.com:hfujiyos/springboot_todoapi.git
+  cd springboot_todoapi
+  code .
   ```
 
-- ローカルリポジトリに feature ブランチで、コーディング / コミット / プッシュ
+- 最新ソースをプル
 
   ```sh
-  開発時にはコミット
-  $ git add .
-  $ git commit -m "Fix login logic"
-
-  featureブランチをリモートリポジトリへプッシュ
-  $ git push origin HEAD
+  git checkout main     # mainブランチに切替
+  git pull              # リモートリポジトリから最新ソースをプル
   ```
 
-- リモートリポジトリの feature ブランチを、リモートリポジトリの main ブランチへマージ依頼するプルリクエスト
+- ローカルリポジトリにfeatureブランチ作成
 
+  ```sh
+  git checkout -b feature/fixLoginLogic
   ```
-  マージする際にイシューもクローズするコメント付与
-  $ close #9
+
+- 最新HEADをリモートプッシュ
+
+  ```sh
+  git add .                           # ステージング
+  git commit -m "Fix login logic"     # コミット
+  git push origin HEAD                # プッシュ
+  ```
+
+- プルリクエスト（リモートfeatureをリモートmainへのマージ依頼）
+
+  * マージする際にイシューもクローズする際にはコメント付与
+  ```
+  close #9
   ```
 
 ## 4. コードレビュー（レビュア）
 
 - レビュアにて、コードレビュー / 承認
 
-- レビュアにて、main ブランチへマージ
 
 ## 5. 後工程（開発者）
 
-- マージ後の main ブランチを取得する
-- ローカルリポジトリで main ブランチの最新のソースをプル
+- レビュアの承認を受けたら、開発者にてmainブランチへマージ
+
+- ローカルmainにリモートmainの最新ソースをプル
 
   ```sh
-  mainブランチに切替
-  $ git checkout main
-
-  mainブランチの最新ソースをリモートリポジトリからプル
-  $ git pull
+  git checkout main     # mainブランチに切替
+  git pull              # リモートリポジトリから最新ソースをプル
   ```
 
-- ローカルリポジトリの不要ブランチ削除
+- ローカルfeatureを削除
 
   ```sh
-  現在のブランチがmainであるか確認
-  $ git branch
+  # 現在のブランチがmainであるか確認
+  git branch
     feature/funcE
   * main
 
-  ローカルリポジトリの不要ブランチを削除
-  $ git branch -D feature/funcE
+  # ローカルリポジトリの不要ブランチを削除
+  git branch -D feature/funcE
 
-  不要ブランチが削除されていることを確認
-  $ git branch
+  # 不要ブランチが削除されていることを確認
+  git branch
   * main
   ```
 
@@ -115,11 +143,11 @@
 - 直前コミットのメッセージのみを変更する
 
   ```sh
-  $ git add -A
-  $ git commit -m "htmlを修正"
-  #あっ　今のコミット内容、cssの修正だった！書き直したい…！
-  $ git commit --amend -m "cssを修正"
-  #これで直前のコミットが更新されました！
+  git add -A
+  git commit -m "htmlを修正"
+  # あっ　今のコミット内容、cssの修正だった！書き直したい…！
+  git commit --amend -m "cssを修正"
+  # これで直前のコミットが更新されました！
   ```
 
 ### コミットの内容を取り消して無かったことにして最初からやり直したい
@@ -133,6 +161,6 @@
   - アンステージされる
 
   ```sh
-  直前のコミットの状態に戻る
-  $ git reset --hard HEAD
+  # 直前のコミットの状態に戻る
+  git reset --hard HEAD
   ```
