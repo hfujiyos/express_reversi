@@ -4,10 +4,10 @@
 
 - Git初回設定
 
-  ``sh
-  git config --global init.defaultBranch main           # デフォルトブランチ名を main に変更
-  git config --global user.name "会社用のユーザーネーム"    # デフォルトユーザー名を指定
-  git config --global user.email "会社用のメールアドレス"   # デフォルトメールアドレスを指定
+  ```sh
+  git config --global init.defaultBranch main   # ﾃﾞﾌｫﾙﾄﾌﾞﾗﾝﾁ名をmainに変更
+  git config --global user.name "会社用ﾕｰｻﾞｰﾈｰﾑ"   # ﾃﾞﾌｫﾙﾄﾕｰｻﾞｰ名を指定
+  git config --global user.email "会社用ﾒｰﾙｱﾄﾞﾚｽ"  # ﾃﾞﾌｫﾙﾄﾒｰﾙｱﾄﾞﾚｽを指定
   ```
 
 -- 開発ディレクトリを作成
@@ -20,8 +20,8 @@
 - ローカルリポジトリを設定
 
   ```sh
-  git init
-  git branch -m master main
+  git init                    # Git初回設定
+  git branch -m master main   # ﾌﾞﾗﾝﾁ名をmasterからmainに変更
   ```
 
 - リモートリポジトリに main ブランチ作成
@@ -61,6 +61,14 @@
 
 ## 3. チケット駆動開発（開発者）
 
+- Node.jsバージョン確認
+
+  ```sh
+  node -v               # nodeﾊﾞｰｼﾞｮﾝ確認
+  nodebrew ls           # ｲﾝｽﾄｰﾙされているnodeﾊﾞｰｼﾞｮﾝ一覧を表示
+  nodebrew use v20.5.1  # 使用するnodeﾊﾞｰｼﾞｮﾝを設定
+  ```
+
 - 開発ディレクトリを作成
 
   ```sh
@@ -71,9 +79,9 @@
 - リモートリポジトリをクローン
 
   ```sh
-  git clone git@github.com:hfujiyos/springboot_todoapi.git
-  cd springboot_todoapi
-  code .
+  git clone git@github.com:hfujiyos/springboot_todoapi.git      # クローン（SSH接続）
+  cd springboot_todoapi                                         # ディレクトリ移動
+  code .                                                        # VSCode起動
   ```
 
 - 最新ソースをプル
@@ -144,10 +152,8 @@
 
   ```sh
   git add -A
-  git commit -m "htmlを修正"
-  # あっ　今のコミット内容、cssの修正だった！書き直したい…！
-  git commit --amend -m "cssを修正"
-  # これで直前のコミットが更新されました！
+  git commit -m "htmlを修正"          # 誤ったコメントでコミットしてしまった
+  git commit --amend -m "cssを修正"   # 直前コミットのコメントを更新
   ```
 
 ### コミットの内容を取り消して無かったことにして最初からやり直したい
@@ -161,6 +167,5 @@
   - アンステージされる
 
   ```sh
-  # 直前のコミットの状態に戻る
-  git reset --hard HEAD
+  git reset --hard HEAD   # 直前のコミットの状態に戻る
   ```
