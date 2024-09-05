@@ -14,12 +14,16 @@
 
 - Japanese Language Pack for Visual Studio Code ｜ Microsoft
 - Git Graph ｜ mhutchie
-- Prettier - Code formatter ｜ Prettier
 - vscode-icons ｜ VSCode Icons Team
-- Bracket Pair Colorizer ｜ CoenraadS【非推奨｜現行 VSCode 標準搭載となり導入不要】
-- Draw.io Integration ｜ Henning Dieterichs
+- Prettier - Code formatter ｜ Prettier
 - ES7+ React/Redux/React-Native snippets ｜ dsznajder
+- Nextjs snippets
 - Jest ｜ Orta
+- Playwright Test for VSCode
+- YAML
+- Swagger Viewer
+- Mermaid Markdown Syntax Highlighting
+- Draw.io Integration ｜ Henning Dieterichs
 
 ## settings.json
 
@@ -30,10 +34,10 @@ VSCode のメニューバーから、[基本設定] - [設定] にて設定画�
 ```json
 {
   //ｽﾀｲﾙ関連
-  "workbench.colorTheme": "Solarized Light",
+  "workbench.iconTheme": "vscode-icons",
   "terminal.integrated.fontSize": 18,
   "editor.fontSize": 18,
-  "editor.tabSize": 2,
+  "editor.tabSize": 4,
   "editor.fontFamily": "Ricty Diminished",
   "editor.renderLineHighlight": "gutter",
   // 括弧記号色付け機能をON
@@ -47,7 +51,7 @@ VSCode のメニューバーから、[基本設定] - [設定] にて設定画�
   "files.autoSave": "off",
   // 行の自動折り返しをOFF
   "editor.wordWrap": "off",
-  // Prettier個別設定を.prettierrc設定ﾌｧｲﾙからの読込をON（共通設定となるpackage.json以外に読込）
+  // Prettier個別設定を.prettierrc設定ﾌｧｲﾙからの読込をON（共通設定となるpackage.jsonよりもprettierrcを優先読込）
   "prettier.requireConfig": true,
   // ﾌｫｰﾏｯﾀをprettierに設定
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -56,6 +60,11 @@ VSCode のメニューバーから、[基本設定] - [設定] にて設定画�
   // ﾏｰｸﾀﾞｳﾝ時のﾌｫｰﾏｯﾀをﾌｧｲﾙ保存時実行をON
   "[markdown]": { "editor.formatOnSave": true },
   // ﾏｰｸﾀﾞｳﾝ時の改行認識設定
-  "markdown.preview.breaks": true
+  "markdown.preview.breaks": true,
+  "workbench.startupEditor": "none",
+  "hediet.vscode-drawio.resizeImages": null,
+  "hediet.vscode-drawio.theme": "Kennedy",
+  "vsicons.dontShowNewVersionMessage": true,
+  "github.copilot.editor.enableAutoCompletions": true
 }
 ```
