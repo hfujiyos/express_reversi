@@ -13,8 +13,8 @@
 -- 開発ディレクトリを作成
 
 ```sh
-mkdir /Development/springboot/springboot_todoapi
-cd /Development/springboot/springboot_todoapi
+mkdir ~/development/nodejs/express_reversi
+cd ~/development/nodejs/express_reversi
 ```
 
 - ローカルリポジトリを設定
@@ -40,7 +40,7 @@ cd /Development/springboot/springboot_todoapi
 - リモートリポジトリを新規設定
 
   ```sh
-  git remote add origin git@github.com:hfujiyos/express_reversi.git    # SSH接続の場合
+  git remote add origin git@github-hfid:hfujiyos/express_reversi.git  # SSH接続の場合
   ```
 
 - 初回リモートプッシュ
@@ -73,23 +73,23 @@ cd /Development/springboot/springboot_todoapi
 - 開発ディレクトリを作成
 
   ```sh
-  mkdir Development/Springboot_todoapi
-  cd Development/Springboot_todoapi
+  mkdir development/nodejs/express_reversi
+  cd development/nodejs/express_reversi
   ```
 
 - リモートリポジトリをクローン
 
   ```sh
-  git clone git@github.com:hfujiyos/springboot_todoapi.git      # クローン（SSH接続）
-  cd springboot_todoapi                                         # ディレクトリ移動
-  code .                                                        # VSCode起動
+  git clone git@github-hfid:hfujiyos/express_reversi.git  # クローン（SSH接続）
+  cd ~/development/nodejs/express_reversi                 # ディレクトリ移動
+  code .                                                  # VSCode起動
   ```
 
 - リモートリポジトリの既存修正
 
   ```sh
-  cd springboot_todoapi
-  git remote set-url origin git@github.com:hfujiyos/springboot_todoapi.git
+  cd ~/development/nodejs/express_reversi
+  git remote set-url origin git@github-hfid:hfujiyos/express_reversi.git
   ```
 
 - 最新ソースをプル
