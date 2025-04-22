@@ -2,7 +2,7 @@
 
 ## 1. 初期ブランチ構築（スクラムマスター）
 
-- Git初回設定
+- Git 初回設定
 
   ```sh
   git config --global init.defaultBranch main   # ﾃﾞﾌｫﾙﾄﾌﾞﾗﾝﾁ名をmainに変更
@@ -12,10 +12,10 @@
 
 -- 開発ディレクトリを作成
 
-  ```sh
-  mkdir /Development/springboot/springboot_todoapi
-  cd /Development/springboot/springboot_todoapi
-  ```
+```sh
+mkdir /Development/springboot/springboot_todoapi
+cd /Development/springboot/springboot_todoapi
+```
 
 - ローカルリポジトリを設定
 
@@ -25,22 +25,23 @@
   ```
 
 - リモートリポジトリに main ブランチ作成
-  * GitHubにログインします
-  * 右上の「New repository」ボタンをクリックします
-  * リポジトリを作成します
-    * Repository name: プロジェクト名（例: springboot_todoapi）
-    * Description: オプションでプロジェクトの説明を入力します
-    * Visibility: 「Public」または「Private」を選択します
-    * 「Create repository」ボタンをクリックしてリポジトリを作成します
-  * 必要に応じて追加設定
-    * プルリクエストがマージされた後、ヘッドブランチを自動的に削除
-    ☑︎Automatically delete head branches
 
-- リモートリポジトリを設定
+  - GitHub にログインします
+  - 右上の「New repository」ボタンをクリックします
+  - リポジトリを作成します
+    - Repository name: プロジェクト名（例: springboot_todoapi）
+    - Description: オプションでプロジェクトの説明を入力します
+    - Visibility: 「Public」または「Private」を選択します
+    - 「Create repository」ボタンをクリックしてリポジトリを作成します
+  - 必要に応じて追加設定
+    - プルリクエストがマージされた後、ヘッドブランチを自動的に削除
+      ☑︎Automatically delete head branches
 
-    ```sh
-    git remote add origin git@github.com:hfujiyos/springboot_todoapi.git      # SSH接続の場合
-    ```
+- リモートリポジトリを新規設定
+
+  ```sh
+  git remote add origin git@github.com:hfujiyos/express_reversi.git    # SSH接続の場合
+  ```
 
 - 初回リモートプッシュ
 
@@ -61,7 +62,7 @@
 
 ## 3. チケット駆動開発（開発者）
 
-- Node.jsバージョン確認
+- Node.js バージョン確認
 
   ```sh
   node -v               # nodeﾊﾞｰｼﾞｮﾝ確認
@@ -84,6 +85,13 @@
   code .                                                        # VSCode起動
   ```
 
+- リモートリポジトリの既存修正
+
+  ```sh
+  cd springboot_todoapi
+  git remote set-url origin git@github.com:hfujiyos/springboot_todoapi.git
+  ```
+
 - 最新ソースをプル
 
   ```sh
@@ -91,13 +99,13 @@
   git pull              # リモートリポジトリから最新ソースをプル
   ```
 
-- ローカルリポジトリにfeatureブランチ作成
+- ローカルリポジトリに feature ブランチ作成
 
   ```sh
   git checkout -b feature/fixLoginLogic
   ```
 
-- 最新HEADをリモートプッシュ
+- 最新 HEAD をリモートプッシュ
 
   ```sh
   git add .                           # ステージング
@@ -105,9 +113,10 @@
   git push origin HEAD                # プッシュ
   ```
 
-- プルリクエスト（リモートfeatureをリモートmainへのマージ依頼）
+- プルリクエスト（リモート feature をリモート main へのマージ依頼）
 
-  * マージする際にイシューもクローズする際にはコメント付与
+  - マージする際にイシューもクローズする際にはコメント付与
+
   ```
   close #9
   ```
@@ -116,19 +125,18 @@
 
 - レビュアにて、コードレビュー / 承認
 
-
 ## 5. 後工程（開発者）
 
-- レビュアの承認を受けたら、開発者にてmainブランチへマージ
+- レビュアの承認を受けたら、開発者にて main ブランチへマージ
 
-- ローカルmainにリモートmainの最新ソースをプル
+- ローカル main にリモート main の最新ソースをプル
 
   ```sh
   git checkout main     # mainブランチに切替
   git pull              # リモートリポジトリから最新ソースをプル
   ```
 
-- ローカルfeatureを削除
+- ローカル feature を削除
 
   ```sh
   # 現在のブランチがmainであるか確認
