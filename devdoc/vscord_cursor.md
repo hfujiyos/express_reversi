@@ -11,8 +11,8 @@
 
 ## 拡張機能
 
-- VSCode から取込
+- VSCode から取み込み
 
 ## settings.json
 
-- VSCode から取込
+- VSCode から取み込み
